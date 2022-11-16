@@ -20,7 +20,15 @@ def words():
     it_n = ['Computer', 'notebook', 'monitor', 'webcam','Router','Display Card',\
 'Hard disk', 'DVD- RW', 'Speaker', 'VGA Card', 'sound card', 'CPU Fan', 'memory',\
 'storage', 'Scanner', 'USB hub', 'Iaptop', 'tablet']
-    it_h =['smartphone', 'Flash Drive', 'keyboard', 'Head set', 'Thumb Drive',\
+    it_h = ['smartphone', 'Flash Drive', 'keyboard', 'Head set', 'Thumb Drive',\
 'Handy Drive', 'Printer', 'Power Supply', 'mainboard','Serial ATA', 'Floppy disk',\
 'Camcorders', 'Projecter', 'smartwatch', 'wireless charger', 'wireless rater',\
 'wireless movse','wireless keyboard', 'powerbank', 'Cooling Pad']
+    food_e = ["Tea", "Soup", "Cake", "Egg", "Fish", "Jam", "Milk", "Taco", "Ham", "Tuna", \
+"Stew", "Pie", "Tart", "Kiwi", "Corn", "Beef", "Pork", "Wine", "Salt", "Soda"]
+    food_n = ["Salmon", "Cheese", "Steak", "Honey", "Salad", "Pizza", "Yogurt", "Gelato",\
+"Coffee", "Cookie", "Bacon", "Lemon", "Butter", "Candy", "Jelly", "Juice", "Chips", \
+"Water", "Bread", "Peach"]
+    food_h = ["Macaron", "Cupcake", "Sandwich", "Burrito", "Noodles", "Croissant", "Avocado"\
+"Almond", "Popsicle", "Meatball", "Ketchup", "Mustard", "Chocolate", "Spaghetti", "Artichoke",\
+"Biscuit", "Popcorn", "Champagne", "Caramel", "Lolipop"]
