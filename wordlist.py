@@ -15,3 +15,12 @@ def words():
 "squid", "tiger", "whale", "zebra", "eagle", "rabbit", "turtle", 'Koala', "Camel"]
     animal_h = ["buffalo", "butterfly", "chicken", "crocodile", "elephant", "giraffe", "goldfish", "hamster", "crocodile", \
 "gorilla", "hippopotamus", "kangaroo", "starfish", "ostrich", "Lobster", "rhinoceros", "Chimpanzee", "Penguin", "Shirmp", "Cheetah"]
+    it_e = ['CPU', 'ram', 'mouse', 'phone', 'SSD', 'HDD', 'Case', 'IDE', 'SCSI',\
+'Cable', 'DVD', 'ROM', 'UPS', 'LCD', 'ipad', 'ipod', 'macbook', 'Lan', 'VR', 'hub']
+    it_n = ['Computer', 'notebook', 'monitor', 'webcam','Router','Display Card',\
+'Hard disk', 'DVD- RW', 'Speaker', 'VGA Card', 'sound card', 'CPU Fan', 'memory',\
+'storage', 'Scanner', 'USB hub', 'Iaptop', 'tablet']
+    it_h =['smartphone', 'Flash Drive', 'keyboard', 'Head set', 'Thumb Drive',\
+'Handy Drive', 'Printer', 'Power Supply', 'mainboard','Serial ATA', 'Floppy disk',\
+'Camcorders', 'Projecter', 'smartwatch', 'wireless charger', 'wireless rater',\
+'wireless movse','wireless keyboard', 'powerbank', 'Cooling Pad']
