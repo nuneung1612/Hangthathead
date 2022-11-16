@@ -9,3 +9,9 @@ def words():
     country_h = ["Afghanistan", "Azerbaijan", "Bangladesh", "Botswana", "Djibouti", "Kyrgyzstan", "Liechtenstein", \
 "Luxembourg", "Madagascar", "Mauritania", "Saudi Arabia", "Tajikistan", "Turkmenistan", "United Arab Emirates", \
 "United States of America", "United Kingdom", "Zimbabwe", "Palestine State", "Papua New Guinea", "Kazakhstan"]
+    animal_e = ["ant", "bat", "bird", "bear", "bee", "cat", "crab", "coe", "deer", "dog", "duck", "fox", "fish", "goat",\
+"lion", "owl", "pig", "rat", "wolf", "frog"]
+    animal_n = ["donkey", "goose", "horse", "monkey", "panda", "piglet", "rabbit", "sheep", "snake", "spider", "shark", \
+"squid", "tiger", "whale", "zebra", "eagle", "rabbit", "turtle", 'Koala', "Camel"]
+    animal_h = ["buffalo", "butterfly", "chicken", "crocodile", "elephant", "giraffe", "goldfish", "hamster", "crocodile", \
+"gorilla", "hippopotamus", "kangaroo", "starfish", "ostrich", "Lobster", "rhinoceros", "Chimpanzee", "Penguin", "Shirmp", "Cheetah"]
