@@ -22,12 +22,12 @@ def menu():
 
     #Fonts
     #Dimbo
-    game_font = pygame.font.SysFont('Dimbo', 80)
-    letter_font = pygame.font.SysFont('Dimbo', 40)
+    game_font = pygame.font.Font('fonts/Dimbo Regular.ttf', 80)
+    letter_font = pygame.font.Font('fonts/Dimbo Regular.ttf', 40)
 
     title = "Hang That Head"
     title_text = game_font.render(title, True, black)
-    title_text_rect = title_text.get_rect(center=(WIDTH//2,title_text.get_height()//2+30))
+    title_text_rect = title_text.get_rect(center=(WIDTH//2,title_text.get_height()//2+20))
     #Select mode
     select = "Select Mode:"
     select_text = letter_font.render(select, True, gray)
