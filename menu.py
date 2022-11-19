@@ -2,6 +2,8 @@
 import pygame
 import sys
 from pygame.locals import *
+from pygame import mixer
+
 #menu
 def menu():
     #color
@@ -12,6 +14,10 @@ def menu():
     gray = (113, 113, 122) #fonts
 
     pygame.init()
+
+    #music
+    mixer.music.load('music/intro.mp3')
+    mixer.music.play(-1)
 
     clock = pygame.time.Clock()
     WIDTH, HEIGHT = 800, 500
