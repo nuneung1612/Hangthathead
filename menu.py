@@ -1,7 +1,6 @@
 """MAIN MENU"""
 import pygame
 import sys
-import button
 from pygame.locals import *
 #menu
 def menu():
@@ -36,26 +35,17 @@ def menu():
     select_text = letter_font.render(select, True, gray)
     select_text_rect = select_text.get_rect(center=(WIDTH//2,title_text.get_height()//2+100))
 
-    #button
-    #load image
-    exit_img = pygame.image.load('exit_btn.png').convert_alpha()
-
-    #create button instances
-    exit_button = button.Button(450, 200, exit_img, 0.8)
-
-
 
     while True:
         screen.fill(yellow)
         screen.blit(title_text, title_text_rect)
         screen.blit(select_text, select_text_rect)
-        if exit_button.draw(screen):
-            print("Press")
         pygame.display.update()
+
         for event in pygame.event.get():
             if event.type == QUIT:
                 pygame.quit()
                 sys.exit()
         clock.tick(50)
         pygame.display.update()
-
+menu()
