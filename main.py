@@ -3,10 +3,14 @@ import pygame
 import sys
 from pygame.locals import *
 from pygame import mixer
-
+#menu 6-127
+#level 132-230
 
 #menu
-def menu():
+#music
+
+
+def menu(var=True):
     #color
     white = (255, 255, 255)
     black = (0, 0, 0)
@@ -15,10 +19,12 @@ def menu():
     gray = (113, 113, 122) #fonts
 
     pygame.init()
-
-    #music
+    
     mixer.music.load('music/intro.mp3')
+    mixer.music.set_volume(0.2)
     mixer.music.play(-1)
+
+
 
     clock = pygame.time.Clock()
     WIDTH, HEIGHT = 800, 500
@@ -49,7 +55,7 @@ def menu():
     butt_food_text = butt_font.render("Food", True, black)
     butt_it_text = butt_font.render("IT", True, black)
 
-    menu_isrun = True
+    menu_isrun = var
 
 
     while menu_isrun == True:
@@ -127,14 +133,16 @@ def menu():
         pygame.display.update()
 
 
-
+"""level"""
 def level(mode, val=False):
+    """Level"""
     #color
     white = (255, 255, 255)
     black = (0, 0, 0)
     yellow = (249, 233, 147) #bg
     pink = (219, 99, 104) #hang_man
     gray = (113, 113, 122) #fonts
+    print(mode)
 
     pygame.init()
 
@@ -169,6 +177,7 @@ def level(mode, val=False):
     butt_easy = butt_font.render("Easy", True, black)
     butt_normal = butt_font.render("Normal", True, black)
     butt_hard = butt_font.render("Hard", True, black)
+    butt_back = butt_font.render("Back", True, white)
 
     level_isrun = val
 
@@ -190,9 +199,12 @@ def level(mode, val=False):
                     print("normal select!")
                 if 330 <= mouse[0] <= 330+140 and 330 <= mouse[1] <= 330+45: #hard
                     print("hard select!")
+                if 100 <= mouse[0] <= 100 + 100 and 400<= mouse[1] <= 400+45:#back
+                    level_isrun = False
+                    menu(True)
 
         clock.tick(50)
-        
+
         mouse = pygame.mouse.get_pos()
 
 
@@ -202,7 +214,7 @@ def level(mode, val=False):
 		
         else:
             pygame.draw.rect(screen, pink, [330, 210, 140,45])
-        
+
         #normal button
 
         if 330 <= mouse[0] <= 330+140 and 270 <= mouse[1] <= 270+45:
@@ -210,7 +222,7 @@ def level(mode, val=False):
 		
         else:
             pygame.draw.rect(screen, pink, [330, 270, 140,45])
-        
+
         #hard button
 
         if 330 <= mouse[0] <= 330+140 and 330 <= mouse[1] <= 330+45:
@@ -219,12 +231,19 @@ def level(mode, val=False):
         else:
             pygame.draw.rect(screen, pink, [330, 330, 140,45])
         
+        if 100 <= mouse[0] <= 100 + 100 and 400 <= mouse[1] <= 400+45:
+            pygame.draw.rect(screen, gray, [100, 400, 100, 45])
+        else:
+            pygame.draw.rect(screen, black, [100, 400, 100, 45])
+
 	
 
         screen.blit(butt_easy, (365, 220))
         screen.blit(butt_normal, (350, 280))
         screen.blit(butt_hard, (365, 340))
-       
+        screen.blit(butt_back, (115, 410))
+
         pygame.display.update()
 #level()
+
 menu()

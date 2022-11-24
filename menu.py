@@ -3,7 +3,7 @@ import pygame
 import sys
 from pygame.locals import *
 from pygame import mixer
-import level
+
 
 #menu
 def menu():
@@ -18,6 +18,7 @@ def menu():
 
     #music
     mixer.music.load('music/intro.mp3')
+    mixer.music.set_volume(0.2)
     mixer.music.play(-1)
 
     clock = pygame.time.Clock()
@@ -65,8 +66,6 @@ def menu():
             if event.type == MOUSEBUTTONDOWN:
                 if 180 <= mouse[0] <= 180+140 and 220 <= mouse[1] <= 220+40: #contry
                     print("Country mode select!")
-                    menu_isrun = False
-                    level.level(True)
                     pygame.quit()
 
                 if 480 <= mouse[0] <= 480+140 and 220 <= mouse[1] <= 220+45: #animal

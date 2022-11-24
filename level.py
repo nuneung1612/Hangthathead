@@ -3,7 +3,7 @@ import pygame
 import sys
 from pygame.locals import *
 from pygame import mixer
-def level():
+def level(val):
     #color
     white = (255, 255, 255)
     black = (0, 0, 0)
@@ -45,8 +45,10 @@ def level():
     butt_normal = butt_font.render("Normal", True, black)
     butt_hard = butt_font.render("Hard", True, black)
 
+    level_isrun = val
 
-    while True:
+
+    while level_isrun == True:
         screen.fill(yellow)
         screen.blit(title_text, title_text_rect)
         screen.blit(select_text, select_text_rect)
@@ -99,4 +101,4 @@ def level():
         screen.blit(butt_hard, (365, 340))
        
         pygame.display.update()
-level()
+level(True)
