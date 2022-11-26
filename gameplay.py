@@ -114,10 +114,15 @@ def gameplay():
 
 
     # Word
-    WORD = random.choice(["Brazil", "Laos", "China", "Egypt", "India", "Peru", "Russia", "Serbia", "Turkey", "Fiji", "Nepal",\
-"Libya", "Kenya", "Iran", "Italy", "Japan", "Korea", "France", "Cuba", "Canada"])
-    WORD = WORD.upper()
-    print(WORD)
+    word_list = []
+    country_e = ["Brazil", "Laos", "China", "Egypt", "India", "Peru", "Russia", "Serbia", "Turkey", "Fiji", "Nepal",\
+    "Libya", "Kenya", "Iran", "Italy", "Japan", "Korea", "France", "Cuba", "Canada"]
+    for _ in range(5):
+        WORD = random.choice(country_e)
+        country_e.remove(WORD)
+        WORD = WORD.upper()
+        word_list.append(WORD)
+    print(word_list)
     GUESSED = []
     
 
@@ -126,39 +131,68 @@ def gameplay():
     title_text = game_font.render(title, True, BLACK)
     title_text_rect = title_text.get_rect(center=(WIDTH//2,title_text.get_height()//2+10))
 
-    while True:
-        for event in pygame.event.get():
-            if event.type == QUIT:
+    #command
+    game_isrun = True
+    count = 0
+    while count < 4:
+        GUESSED = []
+        while game_isrun:
+            game_over = False
+            WORD = word_list[count]
+
+
+            for event in pygame.event.get():
+                if event.type == QUIT:
+                    pygame.quit()
+                    sys.exit()
+
+                if event.type == MOUSEBUTTONDOWN:
+                    clicked_pos = event.pos
+
+                    for button, letter in BUTTONS:
+                        if button.collidepoint(clicked_pos):
+                            GUESSED.append(letter)
+
+                            if letter not in WORD:
+                                hangman_satus += 1
+
+                            if hangman_satus == 7:
+                                game_over = True
+
+                            BUTTONS.remove([button, letter])
+
+            screen.fill(WHITE)
+            screen.blit(IMAGES[hangman_satus], (130,60))
+            screen.blit(title_text, title_text_rect)
+            draw_btns(BUTTONS)
+            display_guess()
+
+            won = True
+
+            for letter in WORD:
+                if letter not in GUESSED:
+                    won = False
+            if won and count<4:
+                count += 1
+                game_over = False
+            elif won and count == 4:
+                game_over = True
+                display_text = 'You Won !!!'
+            else:
+                display_text = 'You Lost !!!'
+
+            pygame.display.update()
+
+            if game_over:
+                pygame.time.delay(500)
+                screen.fill(WHITE)
+                game_over_text = game_font.render(display_text, True, BLACK)
+                game_over_text_rect = game_over_text.get_rect(center=(WIDTH//2,HEIGHT//2))
+                screen.blit(game_over_text, game_over_text_rect)
+                pygame.display.update()
+                pygame.time.delay(3000)
                 pygame.quit()
                 sys.exit()
-
-            if event.type == MOUSEBUTTONDOWN:
-                clicked_pos = event.pos
-
-                for button, letter in BUTTONS:
-                    if button.collidepoint(clicked_pos):
-                        GUESSED.append(letter)
-
-                        if letter not in WORD:
-                            hangman_satus += 1
-
-                        if hangman_satus == 7:
-                            game_over = True
-
-                        BUTTONS.remove([button, letter])
-
-        screen.fill(WHITE)
-        screen.blit(IMAGES[hangman_satus], (130,60))
-        screen.blit(title_text, title_text_rect)
-        draw_btns(BUTTONS)
-        display_guess()
-
-        won = True
-
-        for letter in WORD:
-            if letter not in GUESSED:
-                won = False
-        scoring(won, game_over)
 
 #ยังไม่เสร็จ ยังไม่ได้แก้
 
@@ -172,7 +206,7 @@ def scoring(won, game_over):
 
         pygame.display.update()
         while game_over:
-            if won and count < 5:
+            if won and count < 4:
                 pygame.time.delay(500)
                 count += 1
                 gameplay()
