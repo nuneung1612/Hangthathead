@@ -75,10 +75,6 @@ def draw_btns(BUTTONS):
 
 
 def display_guess():
-    #mixer.music.load('music/gameplay.mp3')
-    #mixer.music.set_volume(0.2)
-    #mixer.music.play(-1)
-
     display_word = ''
 
     for letter in WORD:
@@ -90,9 +86,6 @@ def display_guess():
     text = letter_font.render(display_word, True, BLACK)
     screen.blit(text, (400, 200))
 
-def main(mode, level):
-    """input"""
-    pass
 def gameplay():
     pygame.init()
     global WIDTH, HEIGHT, screen, WORD, SIZE, BLACK, WHITE, GUESSED
@@ -100,6 +93,10 @@ def gameplay():
     yellow = (249, 233, 147)
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
     pygame.display.set_caption("Hang That Head")
+
+    mixer.music.load('music/gameplay.mp3')
+    mixer.music.set_volume(0.2)
+    mixer.music.play(-1)
 
     game_over = False
 
