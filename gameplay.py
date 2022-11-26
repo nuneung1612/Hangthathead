@@ -160,7 +160,7 @@ def gameplay():
                 won = False
         scoring(won, game_over)
 
-
+#ยังไม่เสร็จ ยังไม่ได้แก้
 
 def scoring(won, game_over):
         count = 0
