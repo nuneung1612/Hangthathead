@@ -68,9 +68,9 @@ def words(mode, level):
 def draw_btns(BUTTONS):
     pink = (219, 99, 104)
     for button, letter in BUTTONS:
-        btn_text = btn_font.render(letter, True, pink)
+        btn_text = btn_font.render(letter, True, WHITE)
         btn_text_rect = btn_text.get_rect(center=(button.x + SIZE//2, button.y + SIZE//2))
-        pygame.draw.rect(screen, WHITE, button)
+        pygame.draw.rect(screen, pink, button)
         screen.blit(btn_text, btn_text_rect)
 
 
@@ -91,6 +91,7 @@ def gameplay():
     global WIDTH, HEIGHT, screen, WORD, SIZE, BLACK, WHITE, GUESSED
     WIDTH, HEIGHT = 800, 500
     yellow = (249, 233, 147)
+    gold = (207, 180, 104)
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
     pygame.display.set_caption("Hang That Head")
 
@@ -103,6 +104,7 @@ def gameplay():
     # colors
     WHITE = (255,255,255)
     BLACK = (0,0,0)
+    gray = (113, 113, 122)
 
     # Images
     IMAGES = []
@@ -134,7 +136,7 @@ def gameplay():
         button = ([box, letter])
         BUTTONS.append(button)
 
-    
+
     # Fonts
     global btn_font, letter_font, game_font
     btn_font = pygame.font.SysFont('arial', 30)
@@ -156,7 +158,6 @@ def gameplay():
         word_list.append(WORD)
     print(word_list)
     GUESSED = []
-    
 
     # Title
     title = "Hang That Head"
@@ -165,7 +166,7 @@ def gameplay():
 
     count = 0
     #score
-   
+
 
 
     #command
@@ -195,7 +196,7 @@ def gameplay():
                                 game_over = True
 
                             BUTTONS.remove([button, letter])
-            score_text = letter_font.render(str(count)+"/5", True, BLACK)
+            score_text = letter_font.render(str(count)+"/5", True, gray)
             screen.fill(yellow)
             screen.blit(IMAGES[hangman_satus], (130,60))
             screen.blit(title_text, title_text_rect)
