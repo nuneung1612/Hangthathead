@@ -31,7 +31,7 @@ def words(mode, level):
 'Soundcard', 'Cpufan', 'Memory',\
 'Storage', 'Scanner', 'Usbhub', 'Laptop', 'Tablet']
     it_h = ['Smartphone', 'Flashdrive', 'Keyboard', 'Headset', 'Thumbdrive','Handydrive', 'Printer', 'Powersupply', \
-'Mainboard','Serialata', 'Floppydisk', 'Camcorders', 'Projecter', 'Smartwatch', 'Wirelesscharger', 'Wirelessrater',\
+'Mainboard','Serialata', 'Floppydisk', 'Camcorders', 'Projecter', 'Smartwatch', 'Wirelesscharger', 'Wirelessrouter',\
 'Wirelessmouse','Wirelesskeyboard', 'Powerbank', 'CoolingPad']
     food_e = ["Tea", "Soup", "Cake", "Egg", "Fish", "Jam", "Milk", "Taco", "Ham", "Tuna", "Stew", "Pie", "Tart", "Kiwi", \
 "Corn", "Beef", "Pork", "Wine", "Salt", "Soda"]
@@ -92,6 +92,7 @@ def gameplay():
     WIDTH, HEIGHT = 800, 500
     yellow = (249, 233, 147)
     gold = (207, 180, 104)
+    pink = (219, 99, 104)
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
     pygame.display.set_caption("Hang That Head")
 
@@ -141,7 +142,7 @@ def gameplay():
     global btn_font, letter_font, game_font
     btn_font = pygame.font.SysFont('arial', 30)
     letter_font = pygame.font.Font('fonts/Dimbo Regular.ttf', 60)
-    game_font = pygame.font.Font('fonts/Dimbo Regular.ttf', 80)
+    game_font = pygame.font.Font('fonts/Dimbo Regular.ttf', 70)
 
 
     # Word
@@ -233,26 +234,74 @@ def gameplay():
                     letter = chr(A+ind)
                     button = ([box, letter])
                     BUTTONS.append(button)
-                draw_btns(BUTTONS)
+                #draw_btns(BUTTONS)
 
             elif won and count == 4:
                 game_over = True
                 display_text = 'You Won !!!'
             else:
-                display_text = 'You Lost !!!  '+str(count)+'/5'
+                display_text = 'You Lost !!!'
 
             pygame.display.update()
 
+            #summary screen
+
             if game_over:
                 pygame.time.delay(500)
-                screen.fill(WHITE)
-                game_over_text = game_font.render(display_text, True, BLACK)
-                game_over_text_rect = game_over_text.get_rect(center=(WIDTH//2,HEIGHT//2))
-                screen.blit(game_over_text, game_over_text_rect)
-                pygame.display.update()
-                pygame.time.delay(3000)
+                gameover(display_text, True)
+
+
+def gameover(display_text, gameover_run=False):
+    pygame.init()
+    pink = (219, 99, 104)
+    gray = (113, 113, 122)
+    yellow = (249, 233, 147)
+    BLACK = (0,0,0)
+    WHITE = (255,255,255)
+    screen = pygame.display.set_mode((800, 500))
+    game_font = pygame.font.Font('fonts/Dimbo Regular.ttf', 100)
+    butt_font = pygame.font.SysFont('Corbel_bold', 40)
+    while gameover_run == True:
+        #pygame.display.update()
+        screen.fill(yellow)
+        game_over_text = game_font.render(display_text, True, BLACK)
+        game_over_text_rect = 240, 80
+        screen.blit(game_over_text, game_over_text_rect)
+
+        menu_butt_txt = butt_font.render("Menu", True, WHITE)
+        exit_butt_txt = butt_font.render("Quit", True, WHITE)
+
+        for event in pygame.event.get():
+            mouse = pygame.mouse.get_pos()
+            if event.type == QUIT:
                 pygame.quit()
                 sys.exit()
+            if event.type == MOUSEBUTTONDOWN:
+                if 330 <= mouse[0] <= 330+140 and 250 <= mouse[1] <= 250+45:
+                    print("menu")
 
-#ยังแก้ไม่เสร็จ
+                if 330 <= mouse[0] <= 330+140 and 310 <= mouse[1] <= 310+45: #animal
+                    print("exit")
+                    pygame.quit()
+                    sys.exit()
+        
+        if 330 <= mouse[0] <= 330+140 and 250 <= mouse[1] <= 250+45:
+            pygame.draw.rect(screen, gray, [330, 250, 140, 45])
+            
+        else:
+            pygame.draw.rect(screen, pink, [330, 250, 140, 45])
+
+        if 330 <= mouse[0] <= 330+140 and 310 <= mouse[1] <= 310+45:
+            pygame.draw.rect(screen, gray, [330, 310, 140, 45])
+            
+        else:
+            pygame.draw.rect(screen, pink, [330, 310, 140, 45])
+        screen.blit(menu_butt_txt, (365, 260))
+        screen.blit(exit_butt_txt, (367, 320))
+        pygame.display.update()
+        #pygame.time.delay(3000)
+        #pygame.quit()
+        #sys.exit()
+
+#gameover('You Lost !!!', True)
 gameplay()
