@@ -97,7 +97,7 @@ def gameplay():
     pygame.display.set_caption("Hang That Head")
 
     mixer.music.load('music/gameplay.mp3')
-    mixer.music.set_volume(0.2)
+    mixer.music.set_volume(0.3)
     mixer.music.play(-1)
 
     game_over = False
@@ -253,6 +253,11 @@ def gameplay():
 
 def gameover(display_text, gameover_run=False):
     pygame.init()
+
+    mixer.music.load('music/game over.mp3')
+    mixer.music.set_volume(0.15)
+    mixer.music.play(-1)
+
     pink = (219, 99, 104)
     gray = (113, 113, 122)
     yellow = (249, 233, 147)
