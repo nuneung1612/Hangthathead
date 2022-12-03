@@ -482,16 +482,16 @@ def gameover(display_text, gameover_run=False):
                     gameover_run = False
                     pygame.quit()
                     sys.exit()
-        
+
         if 330 <= mouse[0] <= 330+140 and 250 <= mouse[1] <= 250+45:
             pygame.draw.rect(screen, gray, [330, 250, 140, 45])
-            
+
         else:
             pygame.draw.rect(screen, pink, [330, 250, 140, 45])
 
         if 330 <= mouse[0] <= 330+140 and 310 <= mouse[1] <= 310+45:
             pygame.draw.rect(screen, gray, [330, 310, 140, 45])
-            
+
         else:
             pygame.draw.rect(screen, pink, [330, 310, 140, 45])
         screen.blit(menu_butt_txt, (365, 260))

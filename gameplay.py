@@ -82,7 +82,6 @@ def display_guess():
             display_word += f"{letter} "
         else:
             display_word += "_ "
-
     text = letter_font.render(display_word, True, BLACK)
     screen.blit(text, (400, 200))
 
@@ -267,7 +266,6 @@ def gameover(display_text, gameover_run=False):
     game_font = pygame.font.Font('fonts/Dimbo Regular.ttf', 100)
     butt_font = pygame.font.SysFont('Corbel_bold', 40)
     while gameover_run == True:
-        #pygame.display.update()
         screen.fill(yellow)
         game_over_text = game_font.render(display_text, True, BLACK)
         game_over_text_rect = 240, 80
