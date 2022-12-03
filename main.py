@@ -12,6 +12,7 @@ from pygame import mixer
 
 
 def menu(var=True):
+    """ menu screen """
     #color
     white = (255, 255, 255)
     black = (0, 0, 0)
@@ -265,6 +266,7 @@ def words(mode, level):
     return lis
 
 def draw_btns(BUTTONS):
+    """to draw buttons"""
     pink = (219, 99, 104)
     for button, letter in BUTTONS:
         btn_text = btn_font.render(letter, True, WHITE)
@@ -274,6 +276,7 @@ def draw_btns(BUTTONS):
 
 
 def display_guess():
+    """guess word"""
     display_word = ''
 
     for letter in WORD:
@@ -285,6 +288,7 @@ def display_guess():
     screen.blit(text, (400, 200))
 
 def gameplay(mode, level):
+    """game play"""
     pygame.init()
     global WIDTH, HEIGHT, screen, WORD, SIZE, BLACK, WHITE, GUESSED
     WIDTH, HEIGHT = 800, 500
@@ -302,7 +306,7 @@ def gameplay(mode, level):
     BLACK = (0,0,0)
     gray = (113, 113, 122)
 
-    # Images
+    #Images
     IMAGES = []
     hangman_satus = 0
 
@@ -311,7 +315,7 @@ def gameplay(mode, level):
         IMAGES.append(image)
 
 
-    # Buttons
+    #Buttons
     ROWS = 2
     COLS = 13
     GAP = 20
@@ -438,6 +442,7 @@ def gameplay(mode, level):
 
 
 def gameover(display_text, gameover_run=False):
+    """game over screen"""
     pygame.init()
 
     mixer.music.load('music/game over.mp3')
