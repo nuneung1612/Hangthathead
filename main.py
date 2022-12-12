@@ -22,7 +22,7 @@ def menu(var=True):
     pygame.init()
     
     mixer.music.load('music/intro.mp3')
-    mixer.music.set_volume(0.2)
+    mixer.music.set_volume(0.025)
     mixer.music.play(-1)
 
     clock = pygame.time.Clock()
@@ -73,6 +73,7 @@ def menu(var=True):
         screen.blit(title_text, title_text_rect)
         screen.blit(select_text, select_text_rect)
         for event in pygame.event.get():
+            mouse = pygame.mouse.get_pos()
             if event.type == QUIT:
                 pygame.quit()
                 sys.exit()
@@ -296,7 +297,7 @@ def gameplay(mode, level):
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
     pygame.display.set_caption("Hang That Head")
     mixer.music.load('music/gameplay.mp3')
-    mixer.music.set_volume(0.2)
+    mixer.music.set_volume(0.025)
     mixer.music.play(-1)
 
     game_over = False
@@ -328,11 +329,11 @@ def gameplay(mode, level):
             y = ((GAP * row) + GAP) + (SIZE * row) + 330
             box = pygame.Rect(x, y, SIZE, SIZE)
             BOXES.append(box)
-    A = 65
+    aaa = 65
     BUTTONS = []
 
     for ind, box in enumerate(BOXES):
-        letter = chr(A+ind)
+        letter = chr(aaa+ind)
         button = ([box, letter])
         BUTTONS.append(button)
 
@@ -417,11 +418,11 @@ def gameplay(mode, level):
                         y = ((GAP * row) + GAP) + (SIZE * row) + 330
                         box = pygame.Rect(x, y, SIZE, SIZE)
                         BOXES.append(box)
-                A = 65
+                aaa = 65
                 BUTTONS = []
 
                 for ind, box in enumerate(BOXES):
-                    letter = chr(A+ind)
+                    letter = chr(aaa+ind)
                     button = ([box, letter])
                     BUTTONS.append(button)
                 #draw_btns(BUTTONS)
@@ -446,25 +447,25 @@ def gameover(display_text, gameover_run=False):
     pygame.init()
 
     mixer.music.load('music/game over.mp3')
-    mixer.music.set_volume(0.15)
+    mixer.music.set_volume(0.025)
     mixer.music.play(-1)
 
     pink = (219, 99, 104)
     gray = (113, 113, 122)
     yellow = (249, 233, 147)
-    BLACK = (0,0,0)
-    WHITE = (255,255,255)
+    black = (0,0,0)
+    white = (255,255,255)
     screen = pygame.display.set_mode((800, 500))
     game_font = pygame.font.Font('fonts/Dimbo Regular.ttf', 100)
     butt_font = pygame.font.SysFont('Corbel_bold', 40)
     while gameover_run == True:
         screen.fill(yellow)
-        game_over_text = game_font.render(display_text, True, BLACK)
+        game_over_text = game_font.render(display_text, True, black)
         game_over_text_rect = 240, 80
         screen.blit(game_over_text, game_over_text_rect)
 
-        menu_butt_txt = butt_font.render("Menu", True, WHITE)
-        exit_butt_txt = butt_font.render("Quit", True, WHITE)
+        menu_butt_txt = butt_font.render("Menu", True, white)
+        exit_butt_txt = butt_font.render("Quit", True, white)
 
         for event in pygame.event.get():
             mouse = pygame.mouse.get_pos()
