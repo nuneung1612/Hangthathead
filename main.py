@@ -353,7 +353,7 @@ def gameplay(mode, level):
         gen_list.remove(WORD)
         WORD = WORD.upper()
         word_list.append(WORD)
-    print(word_list)
+    #print(word_list)
     GUESSED = []
 
     # Title
